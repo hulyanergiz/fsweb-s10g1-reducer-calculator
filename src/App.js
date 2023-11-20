@@ -3,7 +3,7 @@ import { useReducer } from "react";
 import TotalDisplay from "./components/TotalDisplay";
 import CalcButton from "./components/CalcButton";
 import reducer, { initialState } from "./reducers/index";
-import { applyNumber, CHANGE_OPERATION, M_PLUS, RESET_CE } from "./actions";
+import { applyNumber, CHANGE_OPERATION, M_PLUS, MR, RESET_CE } from "./actions";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -31,7 +31,7 @@ function App() {
                 value={"M+"}
                 onClick={() => dispatch({ type: M_PLUS })}
               />
-              <CalcButton value={"MR"} />
+              <CalcButton value={"MR"} onClick={() => dispatch({ type: MR })} />
               <CalcButton value={"MC"} />
             </div>
 
