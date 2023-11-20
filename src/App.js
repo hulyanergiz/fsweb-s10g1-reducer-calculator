@@ -89,17 +89,16 @@ function App() {
 
             <div className="row">
               <CalcButton
+                value={0}
+                onClick={(e) => dispatch(applyNumber(e.target.value))}
+              />
+              <CalcButton
                 value={"+"}
                 onClick={(e) =>
                   dispatch({ type: CHANGE_OPERATION, payload: e.target.value })
                 }
               />
-              <CalcButton
-                value={"*"}
-                onClick={(e) =>
-                  dispatch({ type: CHANGE_OPERATION, payload: e.target.value })
-                }
-              />
+
               <CalcButton
                 value={"-"}
                 onClick={(e) =>
@@ -112,6 +111,18 @@ function App() {
               <CalcButton
                 value={"CE"}
                 onClick={() => dispatch({ type: RESET_CE })}
+              />
+              <CalcButton
+                value={"*"}
+                onClick={(e) =>
+                  dispatch({ type: CHANGE_OPERATION, payload: e.target.value })
+                }
+              />
+              <CalcButton
+                value={"/"}
+                onClick={(e) =>
+                  dispatch({ type: CHANGE_OPERATION, payload: e.target.value })
+                }
               />
             </div>
           </form>
