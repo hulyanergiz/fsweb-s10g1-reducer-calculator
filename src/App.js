@@ -3,7 +3,7 @@ import { useReducer } from "react";
 import TotalDisplay from "./components/TotalDisplay";
 import CalcButton from "./components/CalcButton";
 import reducer, { initialState } from "./reducers/index";
-import { applyNumber, CHANGE_OPERATION } from "./actions";
+import { applyNumber, CHANGE_OPERATION, RESET_CE } from "./actions";
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -99,7 +99,10 @@ function App() {
             </div>
 
             <div className="row ce_button">
-              <CalcButton value={"CE"} />
+              <CalcButton
+                value={"CE"}
+                onClick={() => dispatch({ type: RESET_CE })}
+              />
             </div>
           </form>
         </div>
