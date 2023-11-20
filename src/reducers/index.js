@@ -2,6 +2,7 @@ import {
   ADD_ONE,
   APPLY_NUMBER,
   CHANGE_OPERATION,
+  MC,
   MR,
   M_PLUS,
   RESET_CE,
@@ -49,13 +50,15 @@ const reducer = (state, action) => {
       return { ...state, total: 0 };
     case M_PLUS:
       return { ...state, memory: state.total };
-    default:
-      return state;
     case MR:
       return {
         ...state,
         total: calculateResult(state.total, state.memory, state.operation),
       };
+    case MC:
+      return { ...state, memory: 0 };
+    default:
+      return state;
   }
 };
 
