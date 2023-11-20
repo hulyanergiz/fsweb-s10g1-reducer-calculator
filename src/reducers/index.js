@@ -2,6 +2,7 @@ import {
   ADD_ONE,
   APPLY_NUMBER,
   CHANGE_OPERATION,
+  M_PLUS,
   RESET_CE,
 } from "./../actions";
 
@@ -45,6 +46,8 @@ const reducer = (state, action) => {
       };
     case RESET_CE:
       return { ...state, total: 0 };
+    case M_PLUS:
+      return { ...state, memory: state.total };
     default:
       return state;
   }
